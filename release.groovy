@@ -13,7 +13,7 @@ buildPipelineView('BuildPipeline') {
 
 job("mygit"){
  	 scm{
-		github('shubhamkumar1689/DevOps1','master')
+		github('Vishalsingh/DevOps1','master')
   	}
   	triggers{
 		scm('* * * * *')
@@ -23,7 +23,7 @@ job("mygit"){
 	}
   	steps {
         	dockerBuildAndPublish {
-            	repositoryName('shubhamkumar98/httpdserver')
+            	repositoryName('vishalsingh/httpdserver')
             	tag('latest')
             	registryCredentials('mydocker')
 		forceTag(false)
@@ -45,7 +45,7 @@ job("myjob"){
 		then
 		if sudo kubectl get deploy myweb-deploy
 		then
-		sudo kubectl set image deploy myweb-deploy myweb-con=shubhamkumar98/httpdserver:latest
+		sudo kubectl set image deploy myweb-deploy myweb-con=vishalsingh/httpdserver:latest
 		else
 		sudo kubectl create -f /home/jenkins/web-pvc.yml
 		sudo kubectl create -f /home/jenkins/deploy.yml
@@ -81,6 +81,6 @@ job("fourth4"){
 		upstream("third3",'FAILURE')
  	}
     	publishers {
-        	mailer('shubhaminbox061@gmail.com', true, true)
+        	mailer('vishalsingh945295@gmail.com', true, true)
     	}
 }
